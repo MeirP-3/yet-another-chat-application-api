@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/server",
   "scripts": {
-    "start": "nodemon --inspect src/server.ts",
+    "dev": "nodemon --inspect src/server.ts",
+    "start": "node dist/server",
     "build": "npx tsc"
   },
   "keywords": [],
