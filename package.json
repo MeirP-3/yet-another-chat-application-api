@@ -4,7 +4,6 @@
   "description": "",
   "main": "dist/server",
   "scripts": {
-    "start": "nodemon --inspect src/server.ts",
     "build": "npx tsc"
   },
   "keywords": [],
@@ -12,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^6.3.3",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {

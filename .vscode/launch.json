@@ -8,6 +8,24 @@
       "processId": "${command:PickProcess}",
       "restart": true,
       "protocol": "inspector"
+    },
+    {
+      "console": "internalConsole",
+      "internalConsoleOptions": "neverOpen",
+      "name": "nodemon",
+      "program": "${workspaceFolder}/src/server.ts",
+      "request": "launch",
+      "restart": true,
+      "sourceMaps": true,
+      "runtimeExecutable": "nodemon",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "outFiles": [
+        "${workspaceRoot}/dist"
+      ],      
+      "type": "pwa-node",
+      "envFile": "${workspaceFolder}/.env"
     }
   ]
 }

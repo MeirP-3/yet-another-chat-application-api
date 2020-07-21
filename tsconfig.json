@@ -10,7 +10,6 @@
       "experimentalDecorators": true,
       "removeComments": false,
       "noImplicitAny": false,
-      "baseUrl": "src/",
       "outDir": "dist/",
       "skipLibCheck": true,
       "lib": [
