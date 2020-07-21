@@ -2,17 +2,20 @@
   "name": "my-chat-app-server",
   "version": "1.0.0",
   "description": "",
+  "main": "dist/server",
   "scripts": {
     "start": "nodemon --inspect src/server.ts",
-    "build": "npx @zeit/ncc build --minify --no-cache --out build src/server.ts "
+    "build": "npx tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
+    "@types/express": "^4.17.7",
     "@types/node": "^14.0.14",
     "@types/socket.io": "^2.1.8",
     "nodemon": "^2.0.3",
