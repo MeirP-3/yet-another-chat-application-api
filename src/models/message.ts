@@ -4,11 +4,11 @@ import { sequelize } from '../utils/db';
 class Message extends Model {
 
 
-  static async getLast10() {
+  static async getLast50() {
 
     const last10Messages = await this.findAll(
       {
-        limit: 10,
+        limit: 50,
         order: [['createdAt', 'ASC']]
       }
     );

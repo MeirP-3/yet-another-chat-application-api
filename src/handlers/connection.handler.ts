@@ -15,7 +15,7 @@ export const connectionHandler = async (socket: SocketIO.Socket, next) => {
 
     const connectMessage = { ...connectEvent, time: Date.now() };
     
-    const lastMessages = await Message.getLast10();
+    const lastMessages = await Message.getLast50();
 
     socket.emit('last messages', {
       // TODO: include connection events
