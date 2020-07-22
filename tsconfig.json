@@ -2,7 +2,7 @@
   "compilerOptions": {
       "downlevelIteration": true,
       "maxNodeModuleJsDepth": 1,
-      "target": "ES5",
+      "target": "es6",
       "module": "commonjs",
       "moduleResolution": "node",
       "sourceMap": true,

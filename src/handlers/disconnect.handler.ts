@@ -1,6 +1,6 @@
-import { errorHandler } from "../utils/error-handler"
-import { saveEvent } from "../events/handle-events";
-import { unregisterUser } from "../users/registration";
+import { errorHandler } from "../utils/error-handler";
+import ConnectionEvent from "../models/connection-event";
+import User from "../models/user";
 
 
 const onDisconnect = (socket: SocketIO.Socket) => async () => {
@@ -14,13 +14,13 @@ const onDisconnect = (socket: SocketIO.Socket) => async () => {
       name: nickname
     };
   
-    await saveEvent(event);
+    await ConnectionEvent.saveEvent(event);
   
     const message = { ...event, time: Date.now() };
   
     socket.broadcast.send(message);
   
-    await unregisterUser(nickname);
+    await User.unregister(nickname);
   
   } catch (error) {
     
@@ -30,7 +30,7 @@ const onDisconnect = (socket: SocketIO.Socket) => async () => {
 };
 
 
-export const setOnDisconnect = async (
+export const disconnectHandler = async (
   socket: SocketIO.Socket,
   next
 ) => {

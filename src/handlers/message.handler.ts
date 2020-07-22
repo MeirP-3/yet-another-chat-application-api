@@ -1,5 +1,5 @@
-import { saveMessage } from "../messages/messages.service";
 import { errorHandler } from "../utils/error-handler";
+import Message from "../models/message";
 
 const onMessage = (socket: SocketIO.Socket) => async ({ content }) => {
 
@@ -10,7 +10,7 @@ const onMessage = (socket: SocketIO.Socket) => async ({ content }) => {
     const {
       from,
       createdAt: time
-    } = await saveMessage({
+    } = await Message.saveMessage({
       content,
       from: nickname
     });
@@ -32,7 +32,7 @@ const onMessage = (socket: SocketIO.Socket) => async ({ content }) => {
   }
 };
 
-export const setOnMessage = (socket: SocketIO.Socket, next) => {
+export const messageHandler = (socket: SocketIO.Socket, next) => {
   socket.on('message', onMessage(socket));
   next();
 }

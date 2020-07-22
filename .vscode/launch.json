@@ -13,7 +13,7 @@
       "console": "internalConsole",
       "internalConsoleOptions": "neverOpen",
       "name": "nodemon",
-      "program": "${workspaceFolder}/src/server.ts",
+      "program": "${workspaceFolder}/src/debug.ts",
       "request": "launch",
       "restart": true,
       "sourceMaps": true,

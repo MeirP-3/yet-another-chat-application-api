@@ -1,8 +1,8 @@
-import { getLastMessages } from "../messages/messages.service";
-import { saveEvent } from "../events/handle-events";
 import { errorHandler } from "../utils/error-handler";
+import ConnectionEvent from "../models/connection-event";
+import Message from "../models/message";
 
-export const onConnection = async (socket: SocketIO.Socket, next) => {
+export const connectionHandler = async (socket: SocketIO.Socket, next) => {
 
   try {
 
@@ -15,7 +15,7 @@ export const onConnection = async (socket: SocketIO.Socket, next) => {
 
     const connectMessage = { ...connectEvent, time: Date.now() };
     
-    const lastMessages = await getLastMessages();
+    const lastMessages = await Message.getLast10();
 
     socket.emit('last messages', {
       // TODO: include connection events
@@ -27,7 +27,7 @@ export const onConnection = async (socket: SocketIO.Socket, next) => {
     socket.broadcast.send(connectMessage);
     socket.send(connectMessage);
 
-    await saveEvent(connectEvent);
+    await ConnectionEvent.saveEvent(connectEvent);
 
     next();
 
