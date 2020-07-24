@@ -1,6 +1,10 @@
 import { Sequelize } from 'sequelize';
 
-export const sequelize = new Sequelize(process.env.DATABASE_CONNECTION_URI);
+export const sequelize = new Sequelize(process.env.DATABASE_CONNECTION_URI, {
+  dialectOptions: {
+    charset: "utf8mb4"
+  }
+});
 
 (async function() {
   try {

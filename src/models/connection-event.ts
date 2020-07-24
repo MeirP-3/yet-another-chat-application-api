@@ -17,7 +17,7 @@ ConnectionEvent.init({
     type: DataTypes.STRING, // TODO learn about custom type
     allowNull: false
   }
-}, { sequelize, modelName: 'connectionEvent' });
+}, { sequelize, modelName: 'connectionEvent', charset: 'utf8mb4' });
 
 
 export default ConnectionEvent;

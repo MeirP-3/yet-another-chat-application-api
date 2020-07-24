@@ -6,16 +6,16 @@ class Message extends Model {
 
   static async getLast50() {
 
-    const last10Messages = await this.findAll(
+    const last50Messages = await this.findAll(
       {
         limit: 50,
         order: [['createdAt', 'ASC']]
       }
     );
 
-    return last10Messages;
+    return last50Messages;
   }
-  
+
 
   static async saveMessage({ from, content }): Promise<any> {
 
@@ -25,7 +25,7 @@ class Message extends Model {
         content
       }
     );
-  
+
     return message.toJSON();
   }
 
@@ -47,7 +47,7 @@ Message.init({
       return 'message'
     }
   }
-}, { sequelize, modelName: 'message' });
+}, { sequelize, modelName: 'message', charset: 'utf8mb4' });
 
 
 export default Message;

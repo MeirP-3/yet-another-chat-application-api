@@ -42,7 +42,7 @@ User.init({
     allowNull: false,
     unique: true
   }  
-}, { sequelize, modelName: 'user' });
+}, { sequelize, modelName: 'user', charset: 'utf8mb4' });
 
 
 export default User;
